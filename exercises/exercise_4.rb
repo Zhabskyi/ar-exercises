@@ -17,6 +17,9 @@ for value in @mens_stores do
   puts "Annual revenue #{value.annual_revenue}"
 end
 
-@womens_stores = Store.where(annual_revenue < 1000000)
+@womens_stores = Store.where(womens_apparel: true).where('annual_revenue < 1000000')
 
-puts "Womens stores with annual_revenue < 1000000: #{@womens_stores}"
+for value in @womens_stores do
+  puts "Womens store name #{value.name}"
+  puts "Annual revenue #{value.annual_revenue}"
+end
